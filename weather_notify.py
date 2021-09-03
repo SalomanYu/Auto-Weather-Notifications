@@ -31,7 +31,7 @@ def send_message(message: str):
         os.system("notify-send 'Failed Weather app' 'Check internet-connection' ")    
     
     else:
-        os.system(f"notify-send 'Weather in {current_time}' '{city}: {message}' ")
+        os.system(f"notify-send 'Weather in {current_time}' '{city}: {Error}' ")
 
 
 result = get_weather(city)
