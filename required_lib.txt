@@ -1,2 +1,0 @@
-1. pip install pyowm
-2. sudo apt install postfix (for crontab notifications)

@@ -13,19 +13,23 @@
     user@user:~$ sudo add-apt-repository ppa:deadsnakes/ppa
     user@user:~$ sudo apt install python3.10
     ```
-2. Для корректного отображения уведомлений нужно установить:
+2. Установите необходимые python-модули командой:
+    ```console
+    user@user:~$ python3.10 -m pip install -r requirements.txt
+    ```
+3. Для корректного отображения уведомлений нужно установить:
     ```console
     user@user:~$ sudo apt install -y postfix
     ```
-3. В файле ``your_place.py`` замените название дефолтного города на ваш:
+4. В файле ``your_place.py`` замените название дефолтного города на ваш:
     ```python
     city = 'Напишите тут название вашего города латиницей'
     ```
-4. Выполните следующую команду в терминале:
+5. Выполните следующую команду в терминале:
     ```console
     user@user:~$ crontab -e 
     ```
-5. Вставьте в самый конец файла следующую строчку:
+6. Вставьте в самый конец файла следующую строчку:
     ```console
     */15 * * * * DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus /usr/bin/python3.10 /path/to/main/file/weather_notify.py
     ```
