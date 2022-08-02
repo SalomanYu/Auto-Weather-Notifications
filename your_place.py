@@ -1,2 +1,2 @@
 # Insert your place in quotes
-city = 'Simferopol' 
+city = 'Kazan' 

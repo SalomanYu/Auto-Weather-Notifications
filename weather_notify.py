@@ -1,15 +1,12 @@
-#!/usr/bin/python3
+#!/usr/bin/python3.10   
 
 from pyowm.owm import OWM
 from datetime import datetime
 import os
 from your_place import city
 
-# import sys
-# city = sys.argv[1]
 
-
-def get_weather(place):
+def get_weather(place) -> float:
     try:
         owm = OWM('f2c53ec7f15d956f9f3beb17ddedff87')
         Manage = owm.weather_manager()
@@ -21,18 +18,19 @@ def get_weather(place):
         return error
 
 
-def send_message(message: str):
+def send_message(message: float | str) -> None:
     current_time = datetime.now().strftime('%H:%M')
-
-    if 'Unable to find the resource' in str(message):
-        os.system("notify-send 'Failed Weather app' 'The city was not found' ")
-
-    elif 'Failed to establish a new connection' in str(message):
-        os.system("notify-send 'Failed Weather app' 'Check internet-connection' ")    
-    
+    if isinstance(message, float):
+        os.system(f"notify-send 'Weather at {current_time}' '{city}: {message}' ")
     else:
-        os.system(f"notify-send 'Weather in {current_time}' '{city}: {Error}' ")
+        error_text = str(message)
+        match error_text:
+            case 'Unable to find the resource':
+                os.system(f"notify-send 'We`re have some problems...' '[ERROR] The city - {city} was not found' ")
+            case _:
+                os.system(f"notify-send 'We`re have some problems...' '[ERROR] Connection failed' ")
 
-
-result = get_weather(city)
-send_message(result)
+if __name__ == "__main__":
+    result = get_weather(city)
+    # print(result)
+    send_message(result)
