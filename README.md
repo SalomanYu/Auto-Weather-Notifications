@@ -8,18 +8,18 @@
 ## Установка [Linux Mint/Ubuntu]
 1. Обновите версию python до python3.10 командой:
     ```console
-    user@user:~$ sudo apt update && sudo apt upgrade -y
-    user@user:~$ sudo apt install software-properties-common -y
-    user@user:~$ sudo add-apt-repository ppa:deadsnakes/ppa
-    user@user:~$ sudo apt install python3.10
+    sudo apt update && sudo apt upgrade -y
+    sudo apt install software-properties-common -y
+    sudo add-apt-repository ppa:deadsnakes/ppa
+    sudo apt install python3.10
     ```
 2. Установите необходимые python-модули командой:
     ```console
-    user@user:~$ python3.10 -m pip install -r requirements.txt
+    python3.10 -m pip install -r requirements.txt
     ```
 3. Для корректного отображения уведомлений нужно установить:
     ```console
-    user@user:~$ sudo apt install -y postfix
+    sudo apt install -y postfix
     ```
 4. В файле ``your_place.py`` замените название дефолтного города на ваш:
     ```python
@@ -27,7 +27,7 @@
     ```
 5. Выполните следующую команду в терминале:
     ```console
-    user@user:~$ crontab -e 
+    crontab -e 
     ```
 6. Вставьте в самый конец файла следующую строчку:
     ```console
