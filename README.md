@@ -9,8 +9,14 @@
 1. Обновите версию python до python3.10 командой:
     ```console
     sudo apt update && sudo apt upgrade -y
+    ```
+    ```console
     sudo apt install software-properties-common -y
+    ```
+    ```console
     sudo add-apt-repository ppa:deadsnakes/ppa
+    ```
+    ```console
     sudo apt install python3.10
     ```
 2. Установите необходимые python-модули командой:
